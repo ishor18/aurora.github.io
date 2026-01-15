@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="auth-body">
+    <nav class="landing-nav">
+        <a href="index.html" class="logo">Aurora<span>Flow</span></a>
+        <div class="nav-links">
+            <a href="index.html#features" class="nav-btn-link">Features</a>
+            <a href="index.html#pricing" class="nav-btn-link">Pricing</a>
+            <a href="contact.html" class="nav-btn-link">Contact</a>
+            <a href="landing-dashboard.html" class="nav-btn-link">Dashboard</a>
+            <a href="auth.html" class="nav-btn-link active">Sign In</a>
+            <a href="auth.html" class="nav-btn-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <div class="auth-container" style="margin-top: 100px;">
+        <!-- Login Form -->
+        <div class="auth-card" id="login-card">
+            <div class="auth-header">
+                <h1>Welcome Back</h1>
+                <p>Enter your details to access your wealth.</p>
+            </div>
+            <form id="login-form">
+                <div class="input-group">
+                    <label>Email</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="login-email" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                </div>
+                <div style="text-align: right; margin-bottom: 12px;">
+                    <a href="#" id="forgot-password"
+                        style="color: var(--text-secondary); font-size: 12px; text-decoration: none;">Forgot
+                        Password?</a>
+                </div>
+                <button type="submit" class="submit-btn" id="login-btn">Sign In</button>
+            </form>
+            <p class="auth-switch">
+                Don't have an account? <span id="show-signup">Sign Up</span>
+            </p>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="auth-card hidden" id="signup-card">
+            <div class="auth-header">
+                <h1>New Account</h1>
+                <p>Start your financial journey today.</p>
+            </div>
+            <form id="signup-form">
+                <div class="input-group">
+                    <label>Email</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signup-email" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signup-password" placeholder="Create a password" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-check-circle"></i>
+                        <input type="password" id="signup-confirm-password" placeholder="Confirm password" required>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn"
+                    style="background: var(--success-color); box-shadow: 0 4px 15px rgba(0, 245, 212, 0.4);">Create
+                    Account</button>
+            </form>
+            <p class="auth-switch">
+                Already have an account? <span id="show-login">Sign In</span>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js"></script> <!-- Backup CDN -->
+    <script src="config.js"></script>
+    <script src="supabase-client.js"></script>
+    <script src="auth.js"></script>
+</body>
+
+</html>

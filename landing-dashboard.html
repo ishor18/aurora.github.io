@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora | Landing Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dash-container {
+            max-width: 1000px;
+            margin: 120px auto 50px;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .dash-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .dash-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .dash-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-color), var(--success-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dash-card h2 {
+            font-size: 18px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .dash-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .refer-card {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(0, 245, 212, 0.05));
+        }
+
+        .refer-content {
+            flex: 1;
+        }
+
+        .refer-content h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .refer-content p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .refer-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
+        }
+
+        .refer-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(67, 97, 238, 0.5);
+        }
+
+
+        .share-actions {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .share-options {
+            display: flex;
+            gap: 12px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .share-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .share-icon:hover {
+            transform: scale(1.1) translateY(-3px);
+            border-color: var(--accent-color);
+        }
+
+        .share-icon.wa:hover {
+            background: #25D366;
+            color: white;
+            border-color: #25D366;
+        }
+
+        .share-icon.fb:hover {
+            background: #1877F2;
+            color: white;
+            border-color: #1877F2;
+        }
+
+        .share-icon.tw:hover {
+            background: #1DA1F2;
+            color: white;
+            border-color: #1DA1F2;
+        }
+
+        .share-icon.ln:hover {
+            background: #0A66C2;
+            color: white;
+            border-color: #0A66C2;
+        }
+
+        .share-icon.copy:hover {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .refer-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .share-actions {
+                justify-content: center;
+            }
+
+            .refer-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="landing-body">
+    <nav class="landing-nav">
+        <a href="index.html" class="logo">Aurora<span>Flow</span></a>
+        <div class="nav-links">
+            <a href="index.html#features" class="nav-btn-link">Features</a>
+            <a href="index.html#pricing" class="nav-btn-link">Pricing</a>
+            <a href="contact.html" class="nav-btn-link">Contact</a>
+            <a href="landing-dashboard.html" class="nav-btn-link active">Dashboard</a>
+            <a href="auth.html" class="nav-btn-link">Sign In</a>
+            <a href="auth.html" class="nav-btn-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <main class="dash-container">
+        <!-- Total Users -->
+        <div class="dash-card">
+            <div class="dash-icon"><i class="fas fa-users"></i></div>
+            <h2>Total Users</h2>
+            <div class="dash-number" id="landing-total-users">Loading...</div>
+        </div>
+
+        <!-- Active Users -->
+        <div class="dash-card">
+            <div class="dash-icon"><i class="fas fa-user-check"></i></div>
+            <h2>Active Now</h2>
+            <div class="dash-number" id="landing-active-users">
+                <span class="active-dot"></span><span id="active-count">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Refer a Friend -->
+        <div class="dash-card refer-card">
+            <div class="refer-content">
+                <h1>Invite your Friends</h1>
+                <p>Share the flow and unlock premium features for every friend that joins Aurora.</p>
+                <div class="share-actions">
+                    <button class="refer-btn" id="refer-btn">
+                        <i class="fas fa-share-nodes"></i> Share Aurora
+                    </button>
+                    <div id="share-modal" class="share-options" style="display: none;">
+                        <a href="#" class="share-icon wa" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-icon fb" title="Share on Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-icon tw" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="share-icon ln" title="Share on LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <button class="share-icon copy" id="copy-btn" title="Copy Link"><i
+                                class="fas fa-link"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="dash-icon" style="font-size: 80px; opacity: 0.2; transform: rotate(15deg);">
+                <i class="fas fa-gift"></i>
+            </div>
+        </div>
+    </main>
+
+    <footer class="landing-footer"
+        style="padding: 40px 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p>&copy; 2026 Aurora Flow Tracker. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="config.js"></script>
+    <script src="supabase-client.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const totalUsersEl = document.getElementById('landing-total-users');
+            const activeCountEl = document.getElementById('active-count');
+
+            // 1. Fetch Total Registered Users
+            async function fetchTotalUsers() {
+                if (typeof supabase !== 'undefined') {
+                    const { count, error } = await supabase
+                        .from('profiles')
+                        .select('*', { count: 'exact', head: true });
+                    totalUsersEl.innerText = error ? '0' : count.toLocaleString();
+                } else {
+                    totalUsersEl.innerText = '0';
+                }
+            }
+
+            // 2. Real-time Presence for "Active Now"
+            function setupPresence() {
+                if (typeof supabase === 'undefined') {
+                    activeCountEl.innerText = '1';
+                    return;
+                }
+
+                const channel = supabase.channel('online-users', {
+                    config: {
+                        presence: {
+                            key: 'user-' + Math.random().toString(36).substr(2, 9),
+                        },
+                    },
+                });
+
+                channel
+                    .on('presence', { event: 'sync' }, () => {
+                        const state = channel.presenceState();
+                        const activeCount = Object.keys(state).length;
+                        activeCountEl.innerText = activeCount;
+                    })
+                    .on('presence', { event: 'join' }, ({ key, newPresences }) => {
+                        console.log('User joined:', key);
+                    })
+                    .on('presence', { event: 'leave' }, ({ key, leftPresences }) => {
+                        console.log('User left:', key);
+                    })
+                    .subscribe(async (status) => {
+                        if (status === 'SUBSCRIBED') {
+                            await channel.track({ online_at: new Date().toISOString() });
+                        }
+                    });
+            }
+
+            // Initialize
+            await fetchTotalUsers();
+            setupPresence();
+
+            // Refer a Friend & Social Sharing Logic
+            const referBtn = document.getElementById('refer-btn');
+            const shareModal = document.getElementById('share-modal');
+            const copyBtn = document.getElementById('copy-btn');
+
+            const homepageLink = window.location.origin + window.location.pathname.replace('landing-dashboard.html', 'index.html');
+            const shareText = encodeURIComponent("Check out Aurora Flow - The ultimate wealth tracker! 💸");
+            const finalLink = encodeURIComponent(homepageLink);
+
+            referBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                shareModal.style.display = shareModal.style.display === 'none' ? 'flex' : 'none';
+                if (shareModal.style.display === 'flex') {
+                    referBtn.innerHTML = '<i class="fas fa-times"></i> Close';
+                } else {
+                    referBtn.innerHTML = '<i class="fas fa-share-nodes"></i> Share Aurora';
+                }
+            });
+
+            // Social Platform Links
+            document.querySelector('.share-icon.wa').href = `https://wa.me/?text=${shareText}%20${finalLink}`;
+            document.querySelector('.share-icon.fb').href = `https://www.facebook.com/sharer/sharer.php?u=${finalLink}`;
+            document.querySelector('.share-icon.tw').href = `https://twitter.com/intent/tweet?text=${shareText}&url=${finalLink}`;
+            document.querySelector('.share-icon.ln').href = `https://www.linkedin.com/sharing/share-offsite/?url=${finalLink}`;
+
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(homepageLink);
+                alert('Homepage link copied! Share it with your friends to invite them to Aurora.');
+            });
+        });
+    </script>
+</body>
+
+</html>

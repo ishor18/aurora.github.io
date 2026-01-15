@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora | Flow Your Wealth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="landing-body">
+    <nav class="landing-nav">
+        <a href="index.html" class="logo">Aurora<span>Flow</span></a>
+        <div class="nav-links">
+            <a href="#features" class="nav-btn-link">Features</a>
+            <a href="#pricing" class="nav-btn-link">Pricing</a>
+            <a href="contact.html" class="nav-btn-link">Contact</a>
+            <a href="landing-dashboard.html" class="nav-btn-link">Dashboard</a>
+            <a href="auth.html" class="nav-btn-link">Sign In</a>
+            <a href="auth.html" class="nav-btn-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <main class="landing-main">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="live-stats">
+                    <span class="active-dot" style="width: 8px; height: 8px;"></span>
+                    <span style="font-size: 13px; font-weight: 600; color: var(--success-color);"><span
+                            id="live-user-count">...</span> members joined</span>
+                </div>
+                <span class="badge">Next-Gen Expense Tracking</span>
+                <h1>Master Your Money with <span>Aurora Flow</span></h1>
+                <p>Track your daily expenses, manage your income, and gain absolute clarity on your financial journey.
+                    Simple, beautiful, and secure.</p>
+                <div class="hero-btns">
+                    <a href="auth.html" class="cta-primary">Launch App Now</a>
+                    <a href="#demo" id="watch-demo-btn" class="cta-secondary"><i class="fas fa-play"></i> Watch Demo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="aurora_landing_hero.png" alt="Aurora Dashboard Demo">
+                <div class="glow-sphere"></div>
+            </div>
+        </section>
+
+        <section id="demo" class="demo-section">
+            <div class="section-title">
+                <h2>Simplicity in <span>Every Tap</span></h2>
+                <p>Designed for the modern individual who values time and aesthetics.</p>
+            </div>
+            <div class="demo-video-container" id="demo-trigger">
+                <div class="video-overlay">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Watch Interactive Demo</span>
+                </div>
+                <!-- Interactive Video Mockup -->
+                <video id="demo-video" class="demo-video" poster="aurora_landing_hero.png" loop muted playsinline>
+                    <source src="sample.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="dashboard-mockup">
+                    <div class="mock-header"></div>
+                    <div class="mock-balance"></div>
+                    <div class="mock-list">
+                        <div class="mock-item"></div>
+                        <div class="mock-item"></div>
+                        <div class="mock-item"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Modal -->
+        <div class="video-modal" id="video-modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content-wrapper">
+                <button class="modal-close" id="modal-close">&times;</button>
+                <div class="video-end-overlay" id="video-end-overlay">
+                    <div class="overlay-content">
+                        <h3>Demo Complete</h3>
+                        <p>Ready to master your flow?</p>
+                        <div class="overlay-btns">
+                            <button id="replay-btn" class="overlay-btn-primary"><i class="fas fa-redo"></i> Watch
+                                Again</button>
+                            <button id="modal-return-btn" class="overlay-btn-secondary">Return to Home</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-wrapper">
+                    <video id="modal-video-player" width="100%" height="100%" controls style="border-radius: 20px;">
+                        <source src="sample.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <section class="features" id="features">
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Lightning Fast</h3>
+                <p>Log expenses in under 3 seconds with our optimized interface.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-halved"></i>
+                <h3>Cloud Sync</h3>
+                <p>Your data is encrypted and synced across all your devices via Supabase.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-pie"></i>
+                <h3>Smart Insights</h3>
+                <p>Visualize your spending habits with intuitive charts and categories.</p>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section" id="pricing">
+            <div class="section-title">
+                <h2>Choose Your <span>Flow</span></h2>
+                <p>Start free, upgrade when you're ready to unlock premium insights</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="pricing-desc">Perfect for getting started</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited transactions</li>
+                        <li><i class="fas fa-check"></i> Basic analytics</li>
+                        <li><i class="fas fa-check"></i> Cloud sync</li>
+                        <li><i class="fas fa-check"></i> Mobile access</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Advanced insights</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Export to CSV</li>
+                    </ul>
+                    <a href="auth.html" class="pricing-btn">Get Started Free</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">9</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="pricing-desc">For serious money managers</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Basic</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics</li>
+                        <li><i class="fas fa-check"></i> Budget goals & alerts</li>
+                        <li><i class="fas fa-check"></i> Export to CSV/PDF</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Custom categories</li>
+                    </ul>
+                    <a href="auth.html" class="pricing-btn primary">Start Free Trial</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="amount">Custom</span>
+                        </div>
+                        <p class="pricing-desc">For teams and businesses</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Pro</li>
+                        <li><i class="fas fa-check"></i> Multi-user access</li>
+                        <li><i class="fas fa-check"></i> Team analytics</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                        <li><i class="fas fa-check"></i> Dedicated support</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>&copy; 2026 Aurora Flow Tracker. All rights reserved.</p>
+    </footer>
+
+    <!-- Supabase Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js"></script> <!-- Backup CDN -->
+    <script src="config.js"></script>
+    <script src="supabase-client.js"></script>
+    <script>
+        // Navigation logic for logged in users
+        document.addEventListener('DOMContentLoaded', async () => {
+            const checkSupabase = setInterval(async () => {
+                const library = window.supabase || window.supabasejs;
+                if (library && library.createClient && window.supabase?.auth) {
+                    clearInterval(checkSupabase);
+                    try {
+                        const { data: { session } } = await window.supabase.auth.getSession();
+                        if (session) {
+                            // Update buttons to Dashboard
+                            const buttons = document.querySelectorAll('.nav-btn-link, .nav-btn-cta, .cta-primary');
+                            buttons.forEach(btn => {
+                                if (btn.innerText.includes('Sign In') || btn.innerText.includes('Launch App') || btn.innerText.includes('Get Started')) {
+                                    btn.innerText = 'Go to Dashboard';
+                                    btn.href = 'dashboard.html';
+                                }
+                            });
+
+                            // Admin Concept: Add admin link if user is admin
+                            if (session.user.email === 'ishoracharya977@gmail.com') {
+                                const navLinks = document.querySelector('.nav-links');
+                                if (navLinks && !document.querySelector('.admin-link')) {
+                                    const adminLink = document.createElement('a');
+                                    adminLink.href = 'admin.html';
+                                    adminLink.className = 'admin-link';
+                                    adminLink.innerHTML = '<i class="fas fa-user-shield"></i> Admin';
+                                    adminLink.style.marginRight = '15px';
+                                    adminLink.style.color = 'var(--accent-color)';
+                                    adminLink.style.textDecoration = 'none';
+                                    adminLink.style.fontSize = '14px';
+                                    adminLink.style.fontWeight = '600';
+                                    navLinks.prepend(adminLink);
+                                }
+                            }
+                        }
+                    } catch (e) {
+                        console.error("Auth check failed:", e);
+                    }
+                    // Live User Count Logic
+                    try {
+                        const { count } = await window.supabase.from('profiles').select('*', { count: 'exact', head: true });
+                        if (count !== null) document.getElementById('live-user-count').innerText = count.toLocaleString();
+                    } catch (err) { console.error("Initial count fetch failed"); }
+                }
+            }, 100);
+            setTimeout(() => clearInterval(checkSupabase), 3000);
+
+            // Demo Video Logic
+            const demoTrigger = document.getElementById('demo-trigger');
+            const demoVideo = document.getElementById('demo-video');
+            const videoEndOverlay = document.getElementById('video-end-overlay');
+            const videoModal = document.getElementById('video-modal');
+            const modalClose = document.getElementById('modal-close');
+            const modalVideo = document.getElementById('modal-video-player');
+            const replayBtn = document.getElementById('replay-btn');
+            const returnBtn = document.getElementById('modal-return-btn');
+
+            if (demoTrigger && demoVideo) {
+                const watchDemoBtn = document.getElementById('watch-demo-btn');
+
+                // Play background video on hover
+                demoTrigger.addEventListener('mouseenter', () => {
+                    demoVideo.play().catch(e => console.log("Bg video play blocked"));
+                });
+
+                demoTrigger.addEventListener('mouseleave', () => {
+                    demoVideo.pause();
+                });
+
+                // Open Modal on click
+                demoTrigger.addEventListener('click', () => {
+                    if (videoModal) {
+                        videoModal.classList.add('active');
+                        if (videoEndOverlay) videoEndOverlay.classList.remove('active');
+                        if (modalVideo) {
+                            modalVideo.currentTime = 0;
+                            modalVideo.play();
+                        }
+                    }
+                });
+
+                if (watchDemoBtn) {
+                    watchDemoBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if (videoModal) {
+                            videoModal.classList.add('active');
+                            if (videoEndOverlay) videoEndOverlay.classList.remove('active');
+                            if (modalVideo) {
+                                modalVideo.currentTime = 0;
+                                modalVideo.play();
+                            }
+                        }
+                    });
+                }
+            }
+
+            // Handle Video End
+            if (modalVideo && videoEndOverlay) {
+                modalVideo.addEventListener('ended', () => {
+                    videoEndOverlay.classList.add('active');
+                });
+            }
+
+            // Replay Logic
+            if (replayBtn && modalVideo && videoEndOverlay) {
+                replayBtn.addEventListener('click', () => {
+                    videoEndOverlay.classList.remove('active');
+                    modalVideo.currentTime = 0;
+                    modalVideo.play();
+                });
+            }
+
+            // Return Logic
+            if (returnBtn && modalClose) {
+                returnBtn.addEventListener('click', () => {
+                    modalClose.click();
+                });
+            }
+
+            if (modalClose && videoModal) {
+                modalClose.addEventListener('click', () => {
+                    videoModal.classList.remove('active');
+                    if (videoEndOverlay) videoEndOverlay.classList.remove('active');
+                    if (modalVideo) {
+                        modalVideo.pause();
+                        modalVideo.currentTime = 0;
+                    }
+                });
+            }
+
+            // Close modal on backdrop click
+            const backdrop = document.querySelector('.modal-backdrop');
+            if (backdrop && modalClose) {
+                backdrop.addEventListener('click', () => {
+                    modalClose.click();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

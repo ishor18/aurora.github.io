@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora | Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--card-border);
+        }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--success-color);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .user-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .user-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 20px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .user-info h3 {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .user-info p {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-view {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .btn-delete {
+            background: rgba(247, 37, 133, 0.2);
+            color: var(--danger-color);
+            border: 1px solid var(--danger-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: #1a1a2e;
+            border: 1px solid var(--card-border);
+            padding: 30px;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container" style="max-width: 800px;">
+        <div class="admin-header">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <a href="index.html" class="logo" style="font-size: 22px;">Aurora<span>Flow</span></a>
+                <div style="width: 1px; height: 30px; background: rgba(255,255,255,0.1);"></div>
+                <div>
+                    <h1 style="font-size: 18px;">Super Admin</h1>
+                    <p style="font-size: 12px; opacity: 0.6;">Systems Overview</p>
+                </div>
+            </div>
+            <button class="logout-btn" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+
+        <div class="admin-stats">
+            <div class="stat-card">
+                <div class="stat-number" id="total-users">0</div>
+                <div class="stat-label">Total Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="system-income" style="color: var(--success-color)">$0</div>
+                <div class="stat-label">Total Income</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="system-expense" style="color: var(--danger-color)">$0</div>
+                <div class="stat-label">Total Expense</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="system-volume" style="color: #4cc9f0">$0</div>
+                <div class="stat-label">Total Money</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-transactions">0</div>
+                <div class="stat-label">Transactions</div>
+            </div>
+        </div>
+
+        <h2 style="margin: 30px 0 20px 0; font-size: 20px;">Registered Users</h2>
+        <ul class="user-list" id="user-list">
+            <!-- User Items -->
+        </ul>
+
+        <h2 style="margin: 40px 0 20px 0; font-size: 20px; color: var(--accent-color);">Sales Inquiries</h2>
+        <div id="inquiry-list" class="user-list">
+            <!-- Inquiries injected here -->
+            <p style="color: #666; font-style: italic;">Loading inquiries...</p>
+        </div>
+    </div>
+
+    <!-- User Details Modal -->
+    <div class="modal" id="user-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <h2 id="modal-user-email" style="margin-bottom: 20px;">User Details</h2>
+            <div id="modal-user-stats" class="balance-stats" style="margin-bottom: 20px;">
+                <!-- Stats injected here -->
+            </div>
+            <h3>Recent Activity</h3>
+            <ul id="modal-transactions" class="transaction-list" style="margin-top: 10px;">
+                <!-- Transactions -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="supabase-client.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>
