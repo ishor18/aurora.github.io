@@ -11,6 +11,7 @@
     --font-main: 'Outfit', sans-serif;
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
+
 .active-dot {
     display: inline-block;
     width: 12px;
@@ -2110,6 +2111,4 @@ select:focus {
     background: var(--danger-color);
     color: white;
     transform: rotate(90deg);
-
 }
-

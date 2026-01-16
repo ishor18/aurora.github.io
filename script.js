@@ -1,6 +1,7 @@
 // DOM Elements - Wrapped in a getter to ensure they are found when called
 const getEl = (id) => document.getElementById(id);
 const getAll = (sel) => document.querySelectorAll(sel);
+
 // Variable declarations
 let currentUser = null;
 let transactions = [];
@@ -436,5 +437,3 @@ document.addEventListener('DOMContentLoaded', () => {
     setupBudgetManager();
     init();
 });
-
-
