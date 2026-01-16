@@ -11,69 +11,6 @@
     --font-main: 'Outfit', sans-serif;
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
-/* Desktop Styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-/* Mobile Menu Toggle - Hidden by default */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 4px 0;
-    transition: 0.4s;
-}
-
-/* MOBILE VIEW - 768px and below */
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* Show hamburger icon */
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 70px;
-        right: -100%; /* Hide menu off-screen */
-        flex-direction: column;
-        background: #fff;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    }
-
-    .nav-links.active {
-        right: 0; /* Slide menu in when active */
-    }
-
-    .nav-links li {
-        margin: 2.5rem 0;
-    }
-}
-
 .active-dot {
     display: inline-block;
     width: 12px;
@@ -2175,3 +2112,4 @@ select:focus {
     transform: rotate(90deg);
 
 }
+
