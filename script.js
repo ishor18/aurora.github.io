@@ -1,6 +1,20 @@
 // DOM Elements - Wrapped in a getter to ensure they are found when called
 const getEl = (id) => document.getElementById(id);
 const getAll = (sel) => document.querySelectorAll(sel);
+const menu = document.querySelector('#mobile-menu');
+const menuLinks = document.querySelector('.nav-links');
+
+// Toggle Mobile Menu
+menu.addEventListener('click', function() {
+    menu.classList.toggle('is-active');
+    menuLinks.classList.toggle('active');
+});
+
+// Close mobile menu when a link is clicked
+document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
+    menu.classList.remove('is-active');
+    menuLinks.classList.remove('active');
+}));
 
 // Variable declarations
 let currentUser = null;
@@ -437,3 +451,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setupBudgetManager();
     init();
 });
+
